@@ -13,10 +13,32 @@ const state = {
 const $pokedex = $('#pokedex');
 // Functions
 
+const pokemonComponent = pokemon => {
+	return `
+    <div class="card">
+      <div class="img-container">
+        <img class="card-img" src="${pokemon.image}" alt="${pokemon.name}"/>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          ${pokemon.name}
+        </div>
+        <div class="types">
+        
+        </div>
+        <div class="card-text">
+          ${pokemon.pokedex}
+        </div>
+      </div>
+    </div>
+  `;
+};
+
 const render = () => {
 	const { pokemon } = state;
 	pokemon.forEach(doc => {
-		console.log({ pokemon: doc });
+		const card = pokemonComponent(doc);
+		$pokedex.append(card);
 	});
 };
 
