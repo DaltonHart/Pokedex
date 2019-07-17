@@ -6,11 +6,14 @@ const BASE_URL = '/api/pokemon';
 
 // State Variable
 const state = {
-	pokemon: []
+	pokemon: [],
+	filtered: []
 };
 
 // Dom Elements
 const $pokedex = $('#pokedex');
+const $searchbar = $('#search-pokemon');
+
 // Functions
 
 const typeComponent = types => {
@@ -42,11 +45,19 @@ const pokemonComponent = pokemon => {
 };
 
 const render = () => {
-	const { pokemon } = state;
-	pokemon.forEach(doc => {
-		const card = pokemonComponent(doc);
-		$pokedex.append(card);
-	});
+	const { pokemon, filtered } = state;
+	$pokedex.empty();
+	if (filtered.length > 0) {
+		filtered.forEach(doc => {
+			const card = pokemonComponent(doc);
+			$pokedex.append(card);
+		});
+	} else {
+		pokemon.forEach(doc => {
+			const card = pokemonComponent(doc);
+			$pokedex.append(card);
+		});
+	}
 };
 
 const updateState = response => {
@@ -66,4 +77,19 @@ const getAllPokemon = () => {
 
 getAllPokemon();
 
+const filterPokemon = event => {
+	console.log(event.target.value);
+	const filteredPokemon = state.pokemon.filter(pokemon => {
+		return (
+			pokemon.pokedex.toString() === event.target.value ||
+			pokemon.name.toLowerCase().includes(event.target.value.toLowerCase())
+		);
+	});
+	state.filtered = filteredPokemon;
+	console.log({ state });
+	render();
+};
+
 // Event Listeners
+
+$searchbar.keyup(filterPokemon);
