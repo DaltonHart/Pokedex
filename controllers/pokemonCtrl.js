@@ -1,0 +1,26 @@
+const db = require('../models');
+const response = require('./response');
+
+module.exports = {
+	index: (req, res) => {
+		db.Pokemon.find({}, (error, foundPokemons) => {
+			if (error) return response.sendErrorResponse(res, error);
+			response.sendResponse(res, foundPokemons);
+		});
+	},
+	show: (req, res) => {
+		db.Pokemon.findOne({ name: req.params.name }, (error, foundPokemon) => {
+			if (error) return response.sendErrorResponse(res, error);
+			response.sendResponse(res, foundPokemon);
+		});
+	},
+	delete: (req, res) => {
+		db.Pokemon.findOneAndDelete(
+			{ name: req.params.name },
+			(error, deletedPokemon) => {
+				if (error) return response.sendErrorResponse(res, error);
+				response.sendResponse(res, deletedPokemon);
+			}
+		);
+	}
+};
