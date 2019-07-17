@@ -13,7 +13,14 @@ const state = {
 const $pokedex = $('#pokedex');
 // Functions
 
+const typeComponent = types => {
+	return types
+		.map(type => `<p class="type ${type.toLowerCase()}">${type}</p>`)
+		.join('');
+};
+
 const pokemonComponent = pokemon => {
+	const types = typeComponent(pokemon.type);
 	return `
     <div class="card">
       <div class="img-container">
@@ -24,7 +31,7 @@ const pokemonComponent = pokemon => {
           ${pokemon.name}
         </div>
         <div class="types">
-        
+        ${types}
         </div>
         <div class="card-text">
           ${pokemon.pokedex}
