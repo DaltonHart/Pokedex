@@ -14,6 +14,12 @@ module.exports = {
 			response.sendResponse(res, foundPokemon);
 		});
 	},
+	create: (req, res) => {
+		db.Pokemon.create(req.body, (error, createdPokemon) => {
+			if (error) return response.sendErrorResponse(res, error);
+			response.sendResponse(res, createdPokemon);
+		});
+	},
 	delete: (req, res) => {
 		db.Pokemon.findOneAndDelete(
 			{ name: req.params.name },

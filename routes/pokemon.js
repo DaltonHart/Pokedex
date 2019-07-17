@@ -8,7 +8,10 @@ router.get('/', ctrls.pokemonCtrl.index);
 // NOTE Show
 router.get('/:name', ctrls.pokemonCtrl.show);
 
-// NOTE Delete
+// NOTE Create
+router.post('/', ctrls.pokemonCtrl.create);
+
+// NOTE Destroy
 router.delete('/:name', ctrls.pokemonCtrl.delete);
 
 module.exports = router;

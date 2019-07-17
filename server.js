@@ -3,8 +3,12 @@ const express = require('express');
 // Instanced Modules
 const app = express();
 const routes = require('./routes');
-// Glabal Variables
+// Global Variables
 const PORT = 3000;
+
+// Middleware
+app.use(express.json());
+
 // Routes
 app.use('/', routes.views);
 // All Pokemon Endpoints
