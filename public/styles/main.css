@@ -1,3 +1,158 @@
+* {
+	box-sizing: border-box;
+}
+/* Main  */
 body {
 	background-color: goldenrod;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+body h1 {
+	text-align: center;
+	color: white;
+	margin: 0;
+}
+
+main {
+	position: fixed;
+	top: 80px;
+	right: 10px;
+	left: 10px;
+	bottom: 10px;
+	background: white;
+	border-radius: 10px;
+	padding: 20px;
+	overflow-y: scroll;
+	box-shadow: -4px -4px 0 0 rgba(0, 0, 0, 0.2);
+}
+/* Search Bar */
+input[type='search'] {
+	background-color: goldenrod;
+	color: white;
+	width: 50%;
+	padding: 12px 20px;
+	font-size: 1.5em;
+	border: none;
+	box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+input[type='search']::placeholder {
+	color: white;
+	text-align: center;
+}
+
+.search-section {
+	margin: 1.5em;
+	display: grid;
+	place-items: center;
+}
+
+/* Pokedex */
+
+#pokedex {
+	display: flex;
+	flex-wrap: wrap;
+}
+/* Cards */
+.card {
+	height: 40vh;
+	margin: 2em 1em;
+	padding: 1em;
+	width: calc(25% - 3em);
+	background-color: whitesmoke;
+	position: relative;
+	box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+	transform: scaleY(1.1);
+	z-index: 5;
+}
+
+.card-header {
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.img-container {
+	position: relative;
+	height: 25vh;
+}
+
+.card-img {
+	position: absolute;
+	width: 100%;
+	top: -4rem;
+	left: 0;
+	bottom: 1em;
+}
+
+.card-text {
+	background: cornflowerblue;
+	padding: 0.3em;
+	margin: 0;
+	font-weight: bolder;
+	font-size: 1.5em;
+	color: white;
+	position: absolute;
+	top: -0.3em;
+	right: -0.5em;
+	border-radius: 50%;
+}
+
+/* Types */
+.types {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.type {
+	padding: 0.5em;
+	background-color: aqua;
+	border-radius: 10%;
+	margin: 0.5em;
+	color: white;
+	box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.grass {
+	background: rgb(2, 189, 2);
+}
+
+.poison {
+	background-color: rgb(194, 5, 194);
+}
+
+.fire {
+	background: rgb(248, 49, 49);
+}
+
+.water {
+	background-color: aquamarine;
+}
+
+/* media Queries */
+
+@media screen and (max-width: 600px) {
+	.card {
+		width: calc(50% - 2em);
+		height: 22vh;
+	}
+	.card-img {
+		position: relative;
+		top: -1em;
+	}
+	.card-header {
+		font-size: 4.5vw;
+	}
+	.img-container {
+		height: 10vh;
+	}
+	.type {
+		font-size: 3vw;
+	}
 }
