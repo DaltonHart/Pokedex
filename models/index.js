@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/Pokedex', { useNewUrlParser: true });
+const MONGO_URL = process.env.MONGO_URI || 'mongodb://localhost/Pokedex';
+
+mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 
 module.exports = {
 	Pokemon: require('./Pokemon'),
