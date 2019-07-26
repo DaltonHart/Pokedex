@@ -78,7 +78,6 @@ const getAllPokemon = () => {
 getAllPokemon();
 
 const filterPokemon = event => {
-	console.log(event.target.value);
 	const filteredPokemon = state.pokemon.filter(pokemon => {
 		return (
 			pokemon.pokedex.toString() === event.target.value ||
@@ -86,7 +85,6 @@ const filterPokemon = event => {
 		);
 	});
 	state.filtered = filteredPokemon;
-	console.log({ state });
 	render();
 };
 
