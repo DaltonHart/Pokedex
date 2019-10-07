@@ -1,5 +1,6 @@
 // Modules
 const express = require('express');
+const cors = require('cors');
 // Instanced Modules
 const app = express();
 const routes = require('./routes');
@@ -8,6 +9,7 @@ const PORT = 3000;
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.use('/', routes.views);
