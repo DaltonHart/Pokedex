@@ -4,8 +4,9 @@ const cors = require('cors');
 // Instanced Modules
 const app = express();
 const routes = require('./routes');
+
 // Global Variables
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
