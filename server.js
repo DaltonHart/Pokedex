@@ -15,10 +15,10 @@ app.use(cors());
 // Routes
 app.use('/', routes.views);
 // All Pokemon Endpoints
-app.use('/api/pokemon', routes.pokemon);
+app.use('/api/v1/pokemon', routes.pokemon);
 // All Trainer Endpoints
-app.use('/api/trainers', routes.trainers);
+app.use('/api/v1/trainers', routes.trainers);
 // Server Listener
 app.listen(PORT, () => {
-	console.log('Welcome Professor Oak.');
+  console.log('Welcome Professor Oak.');
 });
